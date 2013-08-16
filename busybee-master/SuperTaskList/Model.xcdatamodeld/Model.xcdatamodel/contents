@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Lists" representedClassName="Lists" syncable="YES">
+        <attribute name="nameTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="task" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tasks" inverseName="list" inverseEntity="Tasks" syncable="YES"/>
+    </entity>
+    <entity name="Tasks" representedClassName="Tasks" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="duedate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="reminder" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="taskdescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="taskTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="list" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Lists" inverseName="task" inverseEntity="Lists" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Lists" positionX="-72" positionY="126" width="128" height="73"/>
+        <element name="Tasks" positionX="160" positionY="192" width="128" height="135"/>
+    </elements>
+</model>

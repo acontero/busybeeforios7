@@ -1,0 +1,20 @@
+//
+// Prefix header for all source files of the 'SuperTaskList' target in the 'SuperTaskList' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#define firstTimeUser @"firstTimeUser"
+//#define MR_Shorthane is short hand for a way to define a program constant
+#define MR_SHORTHAND
+//we import "CoreData+MagicalRecord.h" library.  (We didn't cover libraries. It is very common to use open source libraries to gain access to functionality.  When you are starting out libraries are an incredibly quick way to get access to powerful implementation that ideally abstracts most if not all of it's logic.  In this case we are using Magical Record as a tool to manage core data and avoid alot of work).
+#import "CoreData+MagicalRecord.h"
+
+#endif
