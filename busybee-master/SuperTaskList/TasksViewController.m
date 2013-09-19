@@ -2,7 +2,7 @@
 //  TasksListViewController.m
 //  SuperTaskList
 //
-//  Created by Jonathan Zhu on 6/16/13.
+//  Created by Donysa Vacharasanee on 6/16/13.
 //  Copyright (c) 2013 self.edu. All rights reserved.
 //
 
@@ -51,7 +51,6 @@
     self.navigationItem.rightBarButtonItem= edit;
 
     self.textLabel.delegate=self;
-    NSLog(@"viewDidLoad");
    
 }
 
@@ -63,12 +62,13 @@
 - (void) viewDidAppear:(BOOL) animated
 {
     [super viewDidAppear:YES];
-    self.tasksArray = [Tasks findAll];
+    //self.tasksArray = [Tasks findAll];
     self.tasksArray = [Tasks findByAttribute:@"list" withValue:self.currentList];
-
+    
+    
     //After we setup our "Data source" we call the method reload on our tableView object so that the tableview will properly display the appropriate information.
     [self.taskTableView reloadData];
-    NSLog(@"viewDidAppear");
+    
     
 }
 
@@ -94,14 +94,10 @@
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"MM/dd/YYYY"];
         NSString *dateString = [dateFormat stringFromDate: [[self.tasksArray objectAtIndex:indexPath.row] duedate]];
-        NSLog(@"dateString: %@",dateString);
         cell.dueDateLabel.text = [NSString stringWithFormat:@"Due: %@",dateString];
     }
     
     NSNumber *checked = [[self.tasksArray objectAtIndex:indexPath.row] completed];
-    
-    NSLog(@"completed in Core Data = %@",[[self.tasksArray objectAtIndex:indexPath.row] completed]);
-    NSLog(@"checked value = %@",checked);
     
     if ([checked isEqualToNumber:[[NSNumber alloc] initWithBool:YES]]) {
         [cell.checkBoxButton setImage:[UIImage imageNamed:@"checkboxmark.png"] forState:UIControlStateNormal];
@@ -110,7 +106,6 @@
         [cell.checkBoxButton setImage:[UIImage imageNamed:@"checkbox.png"] forState:UIControlStateNormal];
     }
     
-    NSLog(@"task completed: %@",[[self.tasksArray objectAtIndex:indexPath.row] completed]);
     return cell;
     
 }
@@ -118,12 +113,10 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath");
     //After the user touches the row, deselect the row
     
     EditTaskViewController *editTaskVC = [[UIStoryboard storyboardWithName:@"Storyboard" bundle:nil] instantiateViewControllerWithIdentifier:@"editTaskPage"];
     editTaskVC.taskToBeEdited = [self.tasksArray objectAtIndex:indexPath.row];
-    NSLog(@"%@", self.navigationController);
     
     [self.navigationController pushViewController:editTaskVC animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -132,13 +125,10 @@
 
 #pragma mark - UITextFieldDelegate
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
+-(IBAction)textFieldReturn:(id)sender
 {
-    NSLog(@"button pressed");
-    [self.textLabel resignFirstResponder];
-    return YES;
+    [sender resignFirstResponder];
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -173,6 +163,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         Tasks *taskToBeDeleted = self.tasksArray[indexPath.row];
         [taskToBeDeleted MR_deleteEntity];
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
         self.tasksArray = [Tasks findByAttribute:@"list" withValue:self.currentList];;
         [tableView reloadData];
     }

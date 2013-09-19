@@ -2,7 +2,7 @@
 //  Tasks.m
 //  SuperTaskList
 //
-//  Created by Venkat Rao on 7/25/13.
+//  Created by Angelica Contero Stapleton on 7/25/13.
 //  Copyright (c) 2013 self.edu. All rights reserved.
 //
 

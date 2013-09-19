@@ -74,7 +74,7 @@
     // Email Subject
     NSString *emailTitle = @"BusyBee Feedback";
     // Email Content
-    NSString *messageBody = @"My BusyBees got glitches and bugs. I need help fixing it!";
+    NSString *messageBody = @"My BusyBee's got glitches and bugs. I need help fixing it!";
     // To address
     NSArray *toRecipents = [NSArray arrayWithObject:@"busybeev1.0@gmail.com"];
     

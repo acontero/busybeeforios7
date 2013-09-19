@@ -2,7 +2,7 @@
 //  QCToDoListViewController.m
 //  SuperTaskList
 //
-//  Created by QL Mac Lab on 6/29/13.
+//  Created by Jasmine Baker on 6/29/13.
 //  Copyright (c) 2013 self.edu. All rights reserved.
 //
 
@@ -114,8 +114,6 @@
     }
     cell.textLabel.font = [UIFont fontWithName:@"Thonburi" size:17.0f];
     Lists  * list = self.listsArray[indexPath.row];
-    NSLog(@"**** %i %@", indexPath.row, list);
-    NSLog(@"%@", list.nameTitle);
     cell.textLabel.text = [list nameTitle];
     
     return cell;
@@ -125,9 +123,6 @@
 -(void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectRowAtIndexPath");
-    
-    
     TasksViewController *TasksVC = [self.storyboard instantiateViewControllerWithIdentifier:@"taskViewControllerUI"];
     TasksVC.currentList=[self.listsArray objectAtIndex:indexPath.row];
     
@@ -152,6 +147,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
         Lists *listToBeDeleted = self.listsArray[indexPath.row];
         [listToBeDeleted MR_deleteEntity];
+        [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
         self.listsArray = [Lists findAllSortedBy:@"nameTitle" ascending:YES];
         [self.listsTableView reloadData];
         //[tableView reloadData];
@@ -208,19 +204,13 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     // Dispose of any resources that can be recreated.
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField
+-(IBAction)textFieldReturn:(id)sender
 {
-    NSLog(@"return button pressed");
-    [self.toDueList resignFirstResponder];
-   
-    return YES;
-    
+    [sender resignFirstResponder];
 }
-
 
 - (IBAction)addListButtonPressed:(id)sender
 {
-    NSLog(@"addListButtonPressed");
     Lists *mylist = [Lists createEntity];
     mylist.nameTitle= self.toDueList.text;
     [[NSManagedObjectContext MR_contextForCurrentThread]MR_saveToPersistentStoreAndWait];
@@ -228,7 +218,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     self.listsArray = [Lists findAllSortedBy:@"nameTitle" ascending:YES];;
     
     [self.listsTableView reloadData];
-    NSLog(@"reloaded and added list %@",mylist.nameTitle);
     
     self.toDueList.text = @"";
 }

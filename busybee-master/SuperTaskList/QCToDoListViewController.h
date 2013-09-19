@@ -2,7 +2,7 @@
 //  QCToDoListViewController.h
 //  SuperTaskList
 //
-//  Created by QL Mac Lab on 6/29/13.
+//  Created by Jasmine Baker on 6/29/13.
 //  Copyright (c) 2013 self.edu. All rights reserved.
 //
 
@@ -22,8 +22,7 @@ BOOL clearField;
 @property (strong, nonatomic) IBOutlet UIButton *addListButton;
 
 - (IBAction)addListButtonPressed:(id)sender;
-
-
+-(IBAction)textFieldReturn:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITextField *toDueList;
 @property (strong, nonatomic) IBOutlet UITableView *listsTableView;

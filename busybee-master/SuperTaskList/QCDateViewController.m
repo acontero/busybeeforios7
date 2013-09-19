@@ -63,7 +63,6 @@
 - (void) showView
 
 {
-    NSLog(@"showView");
     self.myPicker.hidden=NO;
     self.isPickerShowing=YES;
     [self.view addSubview:myPicker];
@@ -80,8 +79,6 @@
     NSDate *date = [myPicker date];
     
     self.currentTaskToAssignDate.duedate = date;
-    //self.currentTaskToAssignDate.duedate = dateString;
-    NSLog(@"self.taskToBeEdited.duedate from QCDateVC = %@",self.currentTaskToAssignDate.duedate);
     [[NSManagedObjectContext MR_contextForCurrentThread] MR_saveToPersistentStoreAndWait];
     [self.navigationController popViewControllerAnimated:YES];
 }
