@@ -12,6 +12,7 @@
 #import "TasksViewController.h"
 #import "QCAppDelegate.h"
 #import "SettingsInfoTableViewController.h"
+#import "QCListCell.h"
 
 
 BOOL clearField;

@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 	// Do any additional setup after loading the view.
     //FOR TITLE IMAGE
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"reviewus.png"]];
@@ -46,7 +47,7 @@
 
         
     self.review.delegate = self;
-    NSURL *url = [NSURL URLWithString:@"http://www.apple.com/itunes/"];
+    NSURL *url = [NSURL URLWithString:@"https://itunes.apple.com/us/app/busybee-todo-list/id707652885?mt=8"];
     NSURLRequest *requestURL = [NSURLRequest requestWithURL:url];
     [self.review loadRequest:requestURL];
 

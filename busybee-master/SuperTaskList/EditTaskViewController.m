@@ -18,7 +18,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-          
+//    _taskDescriptionTextView.contentInset = UIEdgeInsetsMake(0, 50, 50, 50);
+    _taskDescriptionTextView.textContainerInset = UIEdgeInsetsMake(0, 7, 0, 0);
+    //top, left, bottom , right
+
+    
     //FOR TITLE IMAGE
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-edit.png"]];
     

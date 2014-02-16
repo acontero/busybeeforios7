@@ -124,6 +124,8 @@
 		FDC213F5179C5D4600987040 /* QCReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC213F0179C5D4600987040 /* QCReviewViewController.m */; };
 		FDC21400179C721B00987040 /* QCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDC213FA179C721B00987040 /* QCCell.m */; };
 		FDC21401179C721B00987040 /* QCCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDC213FB179C721B00987040 /* QCCell.xib */; };
+		FDD9AB7018B00ACF00B8A543 /* QCListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FDD9AB6E18B00ACF00B8A543 /* QCListCell.m */; };
+		FDD9AB7118B00ACF00B8A543 /* QCListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDD9AB6F18B00ACF00B8A543 /* QCListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -290,6 +292,9 @@
 		FDC213F9179C721B00987040 /* QCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCCell.h; path = SuperTaskList/QCCell.h; sourceTree = "<group>"; };
 		FDC213FA179C721B00987040 /* QCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCCell.m; path = SuperTaskList/QCCell.m; sourceTree = "<group>"; };
 		FDC213FB179C721B00987040 /* QCCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QCCell.xib; path = SuperTaskList/QCCell.xib; sourceTree = "<group>"; };
+		FDD9AB6D18B00ACF00B8A543 /* QCListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QCListCell.h; path = SuperTaskList/QCListCell.h; sourceTree = "<group>"; };
+		FDD9AB6E18B00ACF00B8A543 /* QCListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QCListCell.m; path = SuperTaskList/QCListCell.m; sourceTree = "<group>"; };
+		FDD9AB6F18B00ACF00B8A543 /* QCListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = QCListCell.xib; path = SuperTaskList/QCListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +319,7 @@
 			children = (
 				7F094656178CD58700E16AB2 /* Storyboard.storyboard */,
 				3351A5CF176E3951006AFF83 /* SuperTaskList */,
+				FDD9AB6C18B00A2700B8A543 /* List Cell */,
 				FDC213F6179C718900987040 /* Checkbox Cell */,
 				3351A794176E3D85006AFF83 /* Model */,
 				6FA94E83178DB0CB00BE7EB7 /* ImageAssets */,
@@ -643,6 +649,16 @@
 			name = "Checkbox Cell";
 			sourceTree = "<group>";
 		};
+		FDD9AB6C18B00A2700B8A543 /* List Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FDD9AB6D18B00ACF00B8A543 /* QCListCell.h */,
+				FDD9AB6E18B00ACF00B8A543 /* QCListCell.m */,
+				FDD9AB6F18B00ACF00B8A543 /* QCListCell.xib */,
+			);
+			name = "List Cell";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -758,6 +774,7 @@
 				FDA8BC6817A61895006A78A7 /* info.png in Resources */,
 				FDA8BC6917A61895006A78A7 /* reviewus.png in Resources */,
 				FDA8BC6A17A61895006A78A7 /* reviewus@2x.png in Resources */,
+				FDD9AB7118B00ACF00B8A543 /* QCListCell.xib in Resources */,
 				FDA8BC6C17A61F0D006A78A7 /* sticky_note.png in Resources */,
 				FDC06D7717E65DDB00AF16CB /* buzzshort.m4a in Resources */,
 				FD65427C17E6C965009573C7 /* Default-568h@2x.png in Resources */,
@@ -808,6 +825,7 @@
 				DB30CCF51791EDAF001224EA /* CategoryViewController.m in Sources */,
 				FDC213F1179C5D4600987040 /* QCEmailUsViewController.m in Sources */,
 				FDC213F2179C5D4600987040 /* QCfaceBookViewController.m in Sources */,
+				FDD9AB7018B00ACF00B8A543 /* QCListCell.m in Sources */,
 				FDC213F5179C5D4600987040 /* QCReviewViewController.m in Sources */,
 				FDC21400179C721B00987040 /* QCCell.m in Sources */,
 				7F18A5601794DCF500403A22 /* QCDateViewController.m in Sources */,
@@ -908,6 +926,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SuperTaskList/SuperTaskList-Prefix.pch";
 				INFOPLIST_FILE = "SuperTaskList/SuperTaskList-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MagicalRecord-master/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",
@@ -932,6 +951,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SuperTaskList/SuperTaskList-Prefix.pch";
 				INFOPLIST_FILE = "SuperTaskList/SuperTaskList-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MagicalRecord-master/Project Files/iOS App Unit Tests/Frameworks/OCMockLibrary\"",

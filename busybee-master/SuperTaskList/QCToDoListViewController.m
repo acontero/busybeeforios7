@@ -107,11 +107,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    static NSString *Cellidentifier = @"QCListCell";
+//    UITableViewCell *cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+//    cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.75 alpha:1.0];
+    
+    QCListCell *cell = [tableView dequeueReusableCellWithIdentifier:Cellidentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"QCListCell" owner:self options: nil];
+        cell = [nib objectAtIndex:0];
     }
+
+    
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+//    }
     cell.textLabel.font = [UIFont fontWithName:@"Thonburi" size:17.0f];
     Lists  * list = self.listsArray[indexPath.row];
     cell.textLabel.text = [list nameTitle];

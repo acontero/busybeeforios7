@@ -17,10 +17,13 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"Reached this point!");
     [super viewDidLoad];
+     NSLog(@"Reached this point too");
     self.myPicker.hidden=YES;
     myPicker.datePickerMode = UIDatePickerModeDate;
-        
+    //[self showView];
+    
     //FOR TITLE IMAGE
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"navbar-date.png"]];
     
@@ -44,14 +47,17 @@
     [self showView];
 }
 
--(void)goToPreviousView{
-    [self.navigationController popViewControllerAnimated:YES];
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         myPicker.frame = CGRectMake(0, 152, 320, 260);
+                     }];
+   
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:YES];
-   
-
+-(void)goToPreviousView{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,13 +73,10 @@
     self.isPickerShowing=YES;
     [self.view addSubview:myPicker];
     myPicker.frame = CGRectMake(0, -250, 320, 50);
-    [UIView animateWithDuration:1.0
-                     animations:^{
-                         myPicker.frame = CGRectMake(0, 152, 320, 260);
-                     }];
+    
+    [self.view addSubview:myPicker];
 }
 
-//THIS METHOD IS NOT SAVING!!!
 - (IBAction)chooseDate:(id)sender
 {        
     NSDate *date = [myPicker date];
